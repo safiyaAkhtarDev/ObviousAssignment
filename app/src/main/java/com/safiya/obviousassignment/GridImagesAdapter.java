@@ -61,6 +61,10 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //we want the clicked image to show first...
+                GridImages gridImages=gridlist.get(position);
+                gridlist.remove(position);
+                gridlist.add(0,gridImages);
                 Intent intent=new Intent(context,DescriptionActivity.class);
                 intent.putParcelableArrayListExtra("gridImagesArrayList",gridlist);
                 context.startActivity(intent);
