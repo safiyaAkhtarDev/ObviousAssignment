@@ -54,6 +54,8 @@ public class GridImagesAdapter extends RecyclerView.Adapter<GridImagesAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        Log.d("safiyas sorted date",gridlist.get(position).getDate());
+
         Glide.with(context).load(gridlist.get(position).getUrl()).into(holder.image);
 
         holder.image.setOnClickListener(new View.OnClickListener() {

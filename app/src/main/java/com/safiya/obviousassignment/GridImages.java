@@ -12,6 +12,7 @@ public class GridImages implements Parcelable {
         media_type = in.readString();
         service_version = in.readString();
         title = in.readString();
+        copyright = in.readString();
         url = in.readString();
     }
     protected  GridImages(){
@@ -86,7 +87,23 @@ public class GridImages implements Parcelable {
         this.url = url;
     }
 
-    String date,explanation,hdurl,media_type,service_version,title,url;
+    String date;
+    String explanation;
+    String hdurl;
+    String media_type;
+    String service_version;
+    String title;
+    String url;
+
+    public String getCopyright() {
+        return copyright;
+    }
+
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
+    }
+
+    String copyright;
 
     @Override
     public int describeContents() {
@@ -101,6 +118,7 @@ public class GridImages implements Parcelable {
         dest.writeString(service_version);
         dest.writeString(url);
         dest.writeString(title);
+        dest.writeString(copyright);
         dest.writeString(media_type);
 
     }

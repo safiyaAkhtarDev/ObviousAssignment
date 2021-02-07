@@ -1,6 +1,7 @@
 package com.safiya.obviousassignment;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +37,11 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        Glide.with(context).load(gridlist.get(position).getUrl()).into(holder.image);
+        Log.d("safiyas url",gridlist.get(position).getHdurl());
+        Glide.with(context).load(gridlist.get(position).getHdurl()).into(holder.image);
         holder.txt_title.setText(gridlist.get(position).getTitle());
         holder.txt_description.setText(gridlist.get(position).getExplanation());
+        holder.txt_date.setText(gridlist.get(position).getDate());
 
     }
 
@@ -51,13 +53,14 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private AppCompatImageView image;
-        private TextView txt_title, txt_description;
+        private TextView txt_title, txt_description,txt_date,txt_copyright;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             txt_title = itemView.findViewById(R.id.txt_title);
             txt_description = itemView.findViewById(R.id.txt_description);
+            txt_date = itemView.findViewById(R.id.txt_date);
 
         }
     }
